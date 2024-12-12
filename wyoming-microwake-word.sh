@@ -18,7 +18,7 @@ udocker_prune
 udocker_create "$CONTAINER_NAME" "$IMAGE_NAME"
 
 if [ -n "$1" ]; then
- udocker_run --entrypoint "bash -c" -p "$PORT:10400" "$CONTAINER_NAME" "$@"
+ udocker_run --entrypoint "bash -c" -p "$PORT:10400" "$CONTAINER_NAME" "--preload-model 'alexa'"
 else
  udocker_run -p "$PORT:10400" \
    -e TZ="$TZ" \
